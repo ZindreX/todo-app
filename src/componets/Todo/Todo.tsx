@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './Todo.css';
 
 interface ITodo {
     index: number;
@@ -16,7 +17,7 @@ export default function Todo({
     const markCompleted = () => setIsCompleted(!isCompleted);
 
     return (
-        <div className="">
+        <div className="wrapper">
             <span>{index}</span>
             <span>{todo}</span>
             <input

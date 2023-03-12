@@ -6,3 +6,8 @@
 .input-field {
     padding: 0.7rem;
 }
+
+.todos > ul {
+    list-style-type: none;
+    padding-left: 0;
+}

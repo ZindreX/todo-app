@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ImportDataButton from "../ImportDataButton/ImportDataButton";
 import Todo from "../Todo/Todo";
 import { TodoType } from "../Todo/TodoType";
 import './TodoFolder.css'
@@ -64,6 +65,9 @@ export default function TodoFolder() {
         setTodos(sortedTodos);
     };
 
+    const handleFetchTodos = (todos: TodoType[]) => {
+        setTodos(todos);
+    };
 
     return (
         <>
@@ -84,6 +88,7 @@ export default function TodoFolder() {
                     Add
                 </button>
                 <button onClick={sortTodosBasedOnConfirmed}>Filter</button>
+                <ImportDataButton fetchTodos={handleFetchTodos} />
             </div>
 
             <div className="todos">

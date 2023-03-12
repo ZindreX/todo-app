@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { todoComparer } from "../../utils/sort";
+import AddNewTodo from "../AddNewTodo/AddNewTodo";
 import ImportDataButton from "../ImportDataButton/ImportDataButton";
 import Todo from "../Todo/Todo";
 import { TodoType } from "../Todo/TodoType";
@@ -84,24 +85,11 @@ export default function TodoFolder() {
         <>
             <h1 aria-label="App title 'Todos'.">Todos</h1>
             <div className="todo-folder-wrapper">
-                <input 
-                    id="addTodo"
-                    type="text"
-                    name="newTodo"
-                    className="input-field"
-                    placeholder="Add a new todo..."
-                    onChange={handleInputChange}
-                    value={newTodo}
-                    aria-label="Textfield for inserting todo."
+                <AddNewTodo
+                    handleInputChange={handleInputChange}
+                    newTodo={newTodo}
+                    addTodo={addTodo}
                 />
-
-                <button
-                    className="primary-button"
-                    onClick={() => addTodo(newTodo)}
-                    aria-label="Button to submit new todo."
-                >
-                    Add
-                </button>
             </div>
 
             <div className="todos">

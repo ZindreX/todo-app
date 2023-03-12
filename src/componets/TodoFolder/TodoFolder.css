@@ -1,11 +1,5 @@
 @import '../../constants/colors.css';
 
-
-.input-field {
-    padding: 0.7rem;
-    margin-right: 0.5rem;
-}
-
 .primary-button {
     background-color: var(--primary-color);
 }

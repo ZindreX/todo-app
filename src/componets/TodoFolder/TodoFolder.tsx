@@ -44,13 +44,13 @@ export default function TodoFolder() {
                     id="addTodo"
                     type="text"
                     name="newTodo"
-                    className="inputField"
+                    className="input-field"
                     placeholder="Add a new todo..."
                     onChange={handleInputChange}
                     value={newTodo}
                 />
                 <button
-                    className="addNewTodoButton"
+                    className="add-new-todo-button"
                     onClick={() => addTodo(newTodo)}>
                     Add
                 </button>

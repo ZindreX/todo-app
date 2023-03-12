@@ -13,15 +13,19 @@ export default function Todo({
 }: ITodo) {
     const [isCompleted, setIsCompleted] = useState<boolean>(completed);
 
-    const getStateIcon = () => {
-        return isCompleted ? 'Completed' : 'X'
-    };
+    const markCompleted = () => setIsCompleted(!isCompleted);
 
     return (
         <div className="">
             <span>{index}</span>
             <span>{todo}</span>
-            <span>{getStateIcon()}</span>
+            <input
+                type="checkbox"
+                name="completed"
+                id="completed"
+                checked={isCompleted}
+                onClick={markCompleted}
+            />
         </div>
     )
 }

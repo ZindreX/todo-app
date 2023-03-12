@@ -1,0 +1,34 @@
+{
+    "todos": [
+        {
+            "index": 0,
+            "todo": "Melk",
+            "completed": false
+        },
+        {
+            "index": 1,
+            "todo": "Brød",
+            "completed": false
+        },
+        {
+            "index": 2,
+            "todo": "Toro Lasagne",
+            "completed": true
+        },
+        {
+            "index": 3,
+            "todo": "Kaffebønner",
+            "completed": true
+        },
+        {
+            "index": 4,
+            "todo": "Hent pakke på Posten",
+            "completed": false
+        },
+        {
+            "index": 5,
+            "todo": "Leverpostei",
+            "completed": false
+        }
+    ]
+}

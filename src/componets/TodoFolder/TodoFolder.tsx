@@ -53,6 +53,17 @@ export default function TodoFolder() {
             /></li>
     });
 
+    const todoComparer = (todo: TodoType, other: TodoType) => {
+        if (todo.completed && !other.completed) return -1;
+        else if (!todo.completed && other.completed) return 1;
+        return 0;
+    };
+
+    const sortTodosBasedOnConfirmed = () => {
+        const sortedTodos = [...todos].sort((a: TodoType, b: TodoType) => todoComparer(a, b))
+        setTodos(sortedTodos);
+    };
+
 
     return (
         <>
@@ -72,6 +83,7 @@ export default function TodoFolder() {
                     onClick={() => addTodo(newTodo)}>
                     Add
                 </button>
+                <button onClick={sortTodosBasedOnConfirmed}>Filter</button>
             </div>
 
             <div className="todos">

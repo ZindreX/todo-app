@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { todoComparer } from "../../utils/sort";
 import ImportDataButton from "../ImportDataButton/ImportDataButton";
 import Todo from "../Todo/Todo";
 import { TodoType } from "../Todo/TodoType";
@@ -52,12 +53,6 @@ export default function TodoFolder() {
                 handleCompletedChanged={handleCompletedChanged}
             /></li>
     });
-
-    const todoComparer = (todo: TodoType, other: TodoType) => {
-        if (todo.completed && !other.completed) return -1;
-        else if (!todo.completed && other.completed) return 1;
-        return 0;
-    };
 
     const sortTodosBasedOnConfirmed = () => {
         const sortedTodos = [...todos].sort((a: TodoType, b: TodoType) => todoComparer(a, b))

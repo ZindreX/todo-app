@@ -7,6 +7,7 @@ import './TodoFolder.css'
 export default function TodoFolder() {
     const [todos, setTodos] = useState<TodoType[]>([]);
     const [newTodo, setNewTodo] = useState<string>("");
+    const [isImportDisabled, setIsImportDisabled] = useState<boolean>(false);
 
     const cleanUpInputField = () => setNewTodo("");
 
@@ -15,9 +16,7 @@ export default function TodoFolder() {
         setTodos(updatedTodosWithoutIndex);
     };
 
-    const isValidInput = (text: string) => {
-        return text?.length > 0;
-    };
+    const isValidInput = (text: string) => text?.length > 0;
 
     const addTodo = (todo: string) => {
         if (!isValidInput(todo)) return;
@@ -65,8 +64,24 @@ export default function TodoFolder() {
         setTodos(sortedTodos);
     };
 
-    const handleFetchTodos = (todos: TodoType[]) => {
-        setTodos(todos);
+    const cleanupIndexes = (importedTodos: TodoType[]) => {
+        let currentLength = todos.length;
+        const cleansedImportedTodos: TodoType[] = [];
+
+        importedTodos.forEach(todo => {
+            todo.index = currentLength;
+            cleansedImportedTodos.push(todo);
+            currentLength += 1;
+        });
+        
+        return cleansedImportedTodos;
+    };
+
+    const handleFetchTodos = (importedTodos: TodoType[]) => {
+        const cleansedImportedTodos = cleanupIndexes(importedTodos);
+        const todoListWithImported = todos.concat(cleansedImportedTodos);
+        setTodos(todoListWithImported);
+        setIsImportDisabled(true);
     };
 
     return (
@@ -88,7 +103,7 @@ export default function TodoFolder() {
                     Add
                 </button>
                 <button onClick={sortTodosBasedOnConfirmed}>Filter</button>
-                <ImportDataButton fetchTodos={handleFetchTodos} />
+                <ImportDataButton fetchTodos={handleFetchTodos} disabled={isImportDisabled} />
             </div>
 
             <div className="todos">

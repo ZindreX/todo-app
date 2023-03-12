@@ -3,15 +3,18 @@ import { TodoType } from '../Todo/TodoType';
 
 interface IImportDataButton {
     fetchTodos: (data: TodoType[]) => void;
+    disabled: boolean;
 }
 
-export default function ImportDataButton({fetchTodos}: IImportDataButton) {
+export default function ImportDataButton({
+    fetchTodos,
+    disabled
+}: IImportDataButton) {
 
     const importDataFromLocalJson = () => {
-       console.log(jsonData);
        const importedTodos = jsonData.todos;
        fetchTodos(importedTodos);
     };
 
-    return <button onClick={importDataFromLocalJson}>Import</button>
+    return <button onClick={importDataFromLocalJson} disabled={disabled}>Import</button>
 }

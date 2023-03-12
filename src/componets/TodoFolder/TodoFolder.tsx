@@ -9,6 +9,11 @@ export default function TodoFolder() {
 
     const cleanUpInputField = () => setNewTodo("");
 
+    const removeTodo = (index: number) => {
+        const updatedTodosWithoutIndex = todos.filter(todo => todo.index !== index);
+        setTodos(updatedTodosWithoutIndex);
+    };
+
     const isValidInput = (text: string) => {
         return text?.length > 0;
     };

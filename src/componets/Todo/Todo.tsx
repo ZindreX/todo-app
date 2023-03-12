@@ -5,12 +5,14 @@ interface ITodo {
     index: number;
     todo: string;
     completed: boolean;
+    handleRemove: (index: number) => void;
 }
 
 export default function Todo({
     index,
     todo,
-    completed
+    completed,
+    handleRemove
 }: ITodo) {
     const [isCompleted, setIsCompleted] = useState<boolean>(completed);
 
@@ -27,6 +29,7 @@ export default function Todo({
                 defaultChecked={isCompleted}
                 onClick={markCompleted}
             />
+            <button onClick={() => handleRemove(index)}>X</button>
         </div>
     )
 }

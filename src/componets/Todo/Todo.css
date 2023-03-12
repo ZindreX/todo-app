@@ -1,6 +1,9 @@
 
+.todo-text {
+    min-width: 250px;
+}
+
 .wrapper {
     display: grid;
-    grid-auto-columns: minmax(0, 1fr);
     grid-auto-flow: column;
 }

@@ -24,7 +24,7 @@ export default function Todo({
     return (
         <div className="wrapper">
             <span>{index}</span>
-            <span>{todo}</span>
+            <span className="todo-text">{todo}</span>
             <input
                 type="checkbox"
                 name="completed"

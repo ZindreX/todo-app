@@ -3,7 +3,7 @@ import { todoComparer } from "../../utils/sort";
 import ImportDataButton from "../ImportDataButton/ImportDataButton";
 import Todo from "../Todo/Todo";
 import { TodoType } from "../Todo/TodoType";
-import './TodoFolder.css'
+import './TodoFolder.css';
 
 export default function TodoFolder() {
     const [todos, setTodos] = useState<TodoType[]>([]);
@@ -45,7 +45,7 @@ export default function TodoFolder() {
     };
 
     const todoItems = todos.map(todo => {
-        return <li key={todo.index}>
+        return <li key={todo.index} className="todo-list-element">
             <Todo
                 index={todo.index}
                 todo={todo.todo}
@@ -83,7 +83,7 @@ export default function TodoFolder() {
     return (
         <>
             <h1>Todos</h1>
-            <div>
+            <div className="todo-folder-wrapper">
                 <input 
                     id="addTodo"
                     type="text"
@@ -93,19 +93,25 @@ export default function TodoFolder() {
                     onChange={handleInputChange}
                     value={newTodo}
                 />
+
                 <button
-                    className="add-new-todo-button"
-                    onClick={() => addTodo(newTodo)}>
+                    className="primary-button"
+                    onClick={() => addTodo(newTodo)}
+                    
+                >
                     Add
                 </button>
-                <button onClick={sortTodosBasedOnConfirmed}>Filter</button>
-                <ImportDataButton fetchTodos={handleFetchTodos} disabled={isImportDisabled} />
             </div>
 
             <div className="todos">
                 <ul>{todoItems}</ul>
             </div>
 
+            <div className="todo-folder-wrapper">
+                <button className="secondary-button" onClick={sortTodosBasedOnConfirmed}>Filter</button>
+                
+                <ImportDataButton fetchTodos={handleFetchTodos} disabled={isImportDisabled} />
+            </div>
         </>
     )
 }

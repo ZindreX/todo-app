@@ -31,8 +31,9 @@ export default function Todo({
                 id="completed"
                 defaultChecked={completed}
                 onClick={markCompleted}
+                className="completed-checkbox"
             />
-            <button onClick={() => handleRemove(index)}>X</button>
+            <button className="delete-button" onClick={() => handleRemove(index)}>X</button>
         </div>
     )
 }

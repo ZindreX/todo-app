@@ -1,5 +1,6 @@
 import jsonData from '../../assets/file.json';
 import { TodoType } from '../Todo/TodoType';
+import './ImportDataButton.css';
 
 interface IImportDataButton {
     fetchTodos: (data: TodoType[]) => void;
@@ -16,5 +17,5 @@ export default function ImportDataButton({
        fetchTodos(importedTodos);
     };
 
-    return <button onClick={importDataFromLocalJson} disabled={disabled}>Import</button>
+    return <button className='secondary-button' style={{marginLeft: '0.5rem'}} onClick={importDataFromLocalJson} disabled={disabled}>Import</button>
 }

@@ -1,13 +1,25 @@
+@import '../../constants/colors.css';
 
-.add-new-todo-button {
-    background-color: cadetblue;
-}
 
 .input-field {
     padding: 0.7rem;
+    margin-right: 0.5rem;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+}
+
+.secondary-button {
+    background-color: var(--secondary-color);
+}
+
+.todo-folder-wrapper > button {
+    border-color: var(--border-color);
 }
 
 .todos > ul {
     list-style-type: none;
     padding-left: 0;
+    justify-content: space-between;
 }

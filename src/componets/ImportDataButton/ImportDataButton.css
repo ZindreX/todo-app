@@ -1,0 +1,5 @@
+@import '../../constants/colors.css';
+
+.secondary-button {
+    background-color: var(--secondary-color);
+}

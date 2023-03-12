@@ -1,3 +1,17 @@
+@import '../../constants/colors.css';
+
+.completed-checkbox {
+    margin-right: 1rem;
+    width: 3rem;
+}
+
+.delete-button {
+    border-color: var(--border-color);
+}
+
+.secondary-button {
+    background-color: var(--secondary-color);
+}
 
 .todo-text {
     min-width: 250px;

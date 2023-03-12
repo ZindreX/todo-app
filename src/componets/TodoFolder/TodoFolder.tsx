@@ -38,8 +38,9 @@ export default function TodoFolder() {
     };
 
     const handleCompletedChanged = (index: number) => {
-        if (todos[index]) {
-            todos[index].completed = !todos[index].completed;
+        const element = todos.find(todo => todo.index === index);
+        if (element) {
+            element.completed = !element.completed;
         }
     };
 

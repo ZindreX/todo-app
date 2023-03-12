@@ -32,7 +32,13 @@ export default function TodoFolder() {
     };
 
     const todoItems = todos.map(todo => {
-        return <li><Todo index={todo.index} todo={todo.task} completed={todo.completed} /></li>
+        return <li key={todo.index}>
+            <Todo
+                index={todo.index}
+                todo={todo.task}
+                completed={todo.completed}
+                handleRemove={removeTodo} 
+            /></li>
     });
 
 

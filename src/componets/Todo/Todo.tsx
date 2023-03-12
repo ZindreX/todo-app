@@ -24,7 +24,7 @@ export default function Todo({
                 type="checkbox"
                 name="completed"
                 id="completed"
-                checked={isCompleted}
+                defaultChecked={isCompleted}
                 onClick={markCompleted}
             />
         </div>

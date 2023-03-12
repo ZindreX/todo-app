@@ -17,5 +17,14 @@ export default function ImportDataButton({
        fetchTodos(importedTodos);
     };
 
-    return <button className='secondary-button' style={{marginLeft: '0.5rem'}} onClick={importDataFromLocalJson} disabled={disabled}>Import</button>
+    return (
+        <button
+            className='secondary-button'
+            style={{marginLeft: '0.5rem'}}
+            onClick={importDataFromLocalJson}
+            disabled={disabled}
+            aria-label="Button to import todos from local json file."
+        >
+            Import
+        </button>)
 }

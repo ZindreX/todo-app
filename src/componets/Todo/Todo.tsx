@@ -23,8 +23,8 @@ export default function Todo({
 
     return (
         <div className="wrapper">
-            <span>{index}</span>
-            <span className="todo-text">{todo}</span>
+            <span aria-label={`Todo index ${index}.`}>{index}</span>
+            <span aria-label="Todo element." className="todo-text">{todo}</span>
             <input
                 type="checkbox"
                 name="completed"
@@ -32,8 +32,15 @@ export default function Todo({
                 defaultChecked={completed}
                 onClick={markCompleted}
                 className="completed-checkbox"
+                aria-label="Checkbox for todo completed."
             />
-            <button className="delete-button" onClick={() => handleRemove(index)}>X</button>
+            <button
+                className="delete-button"
+                onClick={() => handleRemove(index)}
+                aria-label="Button to delete todo."
+            >
+                X
+            </button>
         </div>
     )
 }

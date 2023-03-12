@@ -82,7 +82,7 @@ export default function TodoFolder() {
 
     return (
         <>
-            <h1>Todos</h1>
+            <h1 aria-label="App title 'Todos'.">Todos</h1>
             <div className="todo-folder-wrapper">
                 <input 
                     id="addTodo"
@@ -92,12 +92,13 @@ export default function TodoFolder() {
                     placeholder="Add a new todo..."
                     onChange={handleInputChange}
                     value={newTodo}
+                    aria-label="Textfield for inserting todo."
                 />
 
                 <button
                     className="primary-button"
                     onClick={() => addTodo(newTodo)}
-                    
+                    aria-label="Button to submit new todo."
                 >
                     Add
                 </button>

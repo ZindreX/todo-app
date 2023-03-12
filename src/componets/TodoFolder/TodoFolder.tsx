@@ -23,7 +23,7 @@ export default function TodoFolder() {
 
         const newTodo: TodoType = {
             index: todos.length,
-            task: todo,
+            todo: todo,
             completed: false
         };
 
@@ -46,7 +46,7 @@ export default function TodoFolder() {
         return <li key={todo.index}>
             <Todo
                 index={todo.index}
-                todo={todo.task}
+                todo={todo.todo}
                 completed={todo.completed}
                 handleRemove={removeTodo}
                 handleCompletedChanged={handleCompletedChanged}

@@ -1,6 +1,6 @@
 
 export type TodoType = {
     index: number;
-    task: string;
+    todo: string;
     completed: boolean;
 }

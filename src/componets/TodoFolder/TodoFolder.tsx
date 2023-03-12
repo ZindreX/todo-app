@@ -36,13 +36,20 @@ export default function TodoFolder() {
         setNewTodo(inputText);
     };
 
+    const handleCompletedChanged = (index: number) => {
+        if (todos[index]) {
+            todos[index].completed = !todos[index].completed;
+        }
+    };
+
     const todoItems = todos.map(todo => {
         return <li key={todo.index}>
             <Todo
                 index={todo.index}
                 todo={todo.task}
                 completed={todo.completed}
-                handleRemove={removeTodo} 
+                handleRemove={removeTodo}
+                handleCompletedChanged={handleCompletedChanged}
             /></li>
     });
 

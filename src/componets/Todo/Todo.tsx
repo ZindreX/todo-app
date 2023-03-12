@@ -6,17 +6,20 @@ interface ITodo {
     todo: string;
     completed: boolean;
     handleRemove: (index: number) => void;
+    handleCompletedChanged: (index: number) => void;
 }
 
 export default function Todo({
     index,
     todo,
     completed,
-    handleRemove
+    handleRemove,
+    handleCompletedChanged
 }: ITodo) {
-    const [isCompleted, setIsCompleted] = useState<boolean>(completed);
 
-    const markCompleted = () => setIsCompleted(!isCompleted);
+    const markCompleted = () => {
+        handleCompletedChanged(index);
+    };
 
     return (
         <div className="wrapper">
@@ -26,7 +29,7 @@ export default function Todo({
                 type="checkbox"
                 name="completed"
                 id="completed"
-                defaultChecked={isCompleted}
+                defaultChecked={completed}
                 onClick={markCompleted}
             />
             <button onClick={() => handleRemove(index)}>X</button>

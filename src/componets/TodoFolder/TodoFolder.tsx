@@ -27,7 +27,7 @@ export default function TodoFolder() {
     };
 
     const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
-        const inputText = e.target.value;
+        const inputText = (e.target as HTMLInputElement).value;
         setNewTodo(inputText);
     };
 
